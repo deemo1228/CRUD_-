@@ -1,0 +1,53 @@
+{% extends "main.html" %}
+{% block title %}<title>Add Message</title>{% endblock %}
+{% block css %}
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+<link rel="shortcut icon" href="https://www.flaticon.com/svg/vstatic/svg/2996/2996271.svg?token=exp=1611289169~hmac=31c026f0ddd864c4668616668b5311ff">
+{% endblock %}
+<head>
+</head>
+{% block body %}
+<div class="container">
+    <body background="static\content_120210220929100445.jpg" style = "background-size: 100% 100%; background-repeat: no-repeat; background-attachment: fixed;">
+    <div class="container-xl" style="margin-top: 15%;">
+        <form action="#" method="POST">
+            <div class="container">
+                <div class="col-md-12">
+                    <label for="add_name" class="form-label"><span style="color:orange;">User Name</span></label>
+                    <!-- <p>
+                    </p> -->
+                    <input type="text" class="form-control" id="add_name" placeholder="User Name *" name = "add_name">
+                </div>
+            </div>
+            <p>
+            </p>
+            <div class="container">
+                <div class="col-md-12">
+                    <label for="title" class="form-label"><span style="color:orange;">Title</span></label>
+                    <!-- <p>
+                    </p> -->
+                    <input type="text" class="form-control" id="title" placeholder="Title *" name = "title">
+                </div>
+            </div>
+            <div class="container">
+                <div class="col-md-12">
+                    <label for="content" class="form-label"><span style="color:orange;">Content</span></label>
+                    <!-- <p>
+                    </p> -->
+                    <textarea type="text" class="form-control" id="content" placeholder="Content *" name = "content"></textarea>
+
+
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="mb-3 form-check">
+                    <div id="InfoHelp" class="form-text">我們絕對會與任何人分享您的信息。</div>
+                </div>
+                <button type="submit" class="btn btn-primary">新增</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+</html>

@@ -1,0 +1,66 @@
+
+
+<!--將參數給出的模板更名為父級-->
+{% extends "/main.html" %}
+
+<!--將當前的模板插入到現有的模板當中-->
+<!--{% include "/main.html" %}-->
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+        <body class="text-center">
+        <body background="https://images.unsplash.com/photo-1465247609274-27281ea86149?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" style = "background-size: 100% 100%; background-repeat: no-repeat; background-attachment: fixed;" >
+
+
+
+        <form action = "#" method = "POST">
+        <form class="form-signin">
+        <img class="mb-4" src="static\chat.jpg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Please register </h1>
+
+
+        <label for="user_city" class="form-signin">你住哪裡:</label>
+
+            <select id="user_city" name="city_select" class="form-select" aria-label="Default select example">
+                        <option value="1">Taipei</option>
+                        <option value="2">New Taipei</option>
+                        <option value="3">Taoyuan</option>
+                        <option value="4">Taichung</option>
+                        <option value="5">Tainan</option>
+                        <option value="6">Kaohsiung</option>
+            </select>
+
+
+        <label for="user_name" class="sr-only">user_name</label>
+        <input type="text" id="user_name" class="form-control" placeholder="user_name" name="user_name" required="">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">註冊</button>
+
+
+
+
+
+        </form>
+        </body>
+
+
+
+
+
+</div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

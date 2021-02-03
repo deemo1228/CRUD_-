@@ -1,0 +1,84 @@
+{% include "main.html" %}
+<!-- <link href="{{url_for('static', filename = 'css/bootstrap.min.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+<html>
+    {% block title %}<title>HomePage</title>{%  endblock %}
+  <body>
+    {% block body %}
+    <!-- margin-top：與上方元素的距離、margin-right：與右方元素的距離、margin-bottom：與下方元素的距離、margin-left：與左方元素的距離 -->
+    <div style="margin:5px 10px 15px 20px">
+        <style>
+            body {
+                background-image: url("https://images.unsplash.com/photo-1611642055305-56ce8c72661d?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+                padding-bottom: 45%;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: center;
+                background-size: cover;
+            }
+        </style>
+        <p class="h1"><b>留言列表</b></p>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">使用者名稱</th>
+                <th scope="col">標題</th>
+                <th scope="col">內容</th>
+                <th scope="col">按鈕</th>
+              </tr>
+            </thead>
+            {% for row in Message %}
+            <tr>
+                <td scope="row">{{row.id}}</td>
+                <td scope="row">{{row.user.name}}</td>
+                <td scope="row">{{row.title}}</td>
+                <td scope="row">{{row.content}}</td>
+                <td scope="row"><input type ="button" onclick="javascript:location.href='delete/{{row.id}}'" value="刪除"></input>
+<!--                <input type ="button" onclick="javascript:location.href='update_db/{{row.id}}'" value="修改"></input></td>-->
+
+                <!-- 按钮触发模态框 -->
+                <td scope="row"><button  data-toggle="modal" data-target="#myModal{{row.id}}">新修改</button>
+            </tr>
+
+
+
+                <!-- 模态框（Modal） -->
+            <div class="modal fade" id="myModal{{row.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	            <div class="modal-dialog">
+		            <div class="modal-content">
+		            	<div class="modal-header">
+                            <form action="#" method="POST">
+				                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				                <h4 class="modal-title" id="myModalLabel">更改留言</h4>
+                                <input type="hidden"  name="id" value="{{row.id}}">
+                                <label for="current_title" class="form-label"><span style="color:orange;">title</span></label>
+                                <input type="text" class="form-control" id="current_title" value="{{row.title}}" name = "current_title">
+                                <label for="current_content" class="form-label"><span style="color:orange;">Content</span></label>
+                                <textarea type="text" class="form-control" id="current_content" name = "current_content">{{row.content}}</textarea>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                                    <button type="submit" class="btn btn-primary" >提交更改</button>
+                                </div>
+                            </form>
+			            </div>
+		            </div><!-- /.modal-content -->
+	            </div><!-- /.modal -->
+            </div>
+
+            {% endfor  %}
+        </table>
+    </div>
+    {% endblock %}
+
+  </body>
+
+
+ {% block js %}
+
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    {% endblock %}
+
+</html>

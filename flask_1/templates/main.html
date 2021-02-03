@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block title %}{%  endblock %}
+    <!--
+        <meta> viewport 來指定瀏覽器怎麼渲染和縮放網頁畫面的寬高
+        通過設置 viewport (視口)，你可以控制螢幕的寬度和縮放比例
+        width=device-width 指定瀏覽器頁面的寬度同裝置 (device) 的寬度
+        initial-scale=1.0 指定畫面初始縮放比例為 100%，即不放大也不縮小
+    -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!--
+        <link> tag 最常見的就是用來載入外部 CSS 樣式表 (stylesheet)
+        如果檔案在本機端，網址也可以省略只寫路徑
+        下方程式碼屬於外部載入的CSS樣式表
+     -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css">
+
+<!--      你也可以這樣連接3.4.1-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">-->
+      {% block css %}{% endblock %}
+  </head>
+  <!-- <body> 裡面主要是放使用者從螢幕上看得到的內容，相對於 <head> 是放使用者看不見給機器看的內容 -->
+  <body>
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand">
+            <a href=""><img src="https://images.unsplash.com/photo-1611599537845-1c7aca0091c0?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" width="50" height="50"></a>
+            <!-- <span>留言板</span> -->
+          </a>
+          <!-- 當網頁寬度太小時，這些導覽列會直接縮成一個按鈕（通常長的像「三」），我們一樣可以寫出這樣的語法來 -->
+          <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu">
+            <span class="sr-only">導覽按鈕</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- 選單按鈕底下放要縮放的內容 -->
+        <div id="navbar-menu" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a class="nav-link" href="/">留言板</a></li>
+            <li><a class="nav-link" href="/add">新增訊息</a></li>
+            <li><a class="nav-link" href="/register">註冊</a></li>
+          </ul>
+          <p class="navbar-text"><b>MESSAGEBOARD</b></p>
+        </div>
+      </div>
+    </nav>
+    </header>
+    {% block body%}{% endblock %}
+  </body>
+  <!--
+    1. <script> tag是用來寫JavaScript的，你可以直接(inline)寫JavaScript code 在 <sciprt> 裡面，或是用 <script> 來載入外部 JavaScript 程式檔案
+    2. 如果是用來載入外部 JavaScript 檔案，則是使用 <script> 的 src 屬性 (attribute) 指定檔案位址 (URL)
+   -->
+   <script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+   <script src="https://unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+   <script>document.body.style.overflow='hidden';</script>
+   {% block js %}
+
+  {% endblock %}
+</html>

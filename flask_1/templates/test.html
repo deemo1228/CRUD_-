@@ -1,0 +1,42 @@
+{% extends "/main.html" %}
+
+{% block css %}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="container bootdey">
+<div class="email-app mb-4">
+    <main class="inbox">
+{% for item in Message%}
+        <ul class="messages">
+            <li class="message unread">
+                <a href="#">
+                    <div class="actions">
+                        <span class="action"><i class="fa fa-square-o"></i></span>
+                        <span class="action"><i class="fa fa-star-o"></i></span>
+                    </div>
+                    <div class="header">
+                        <span class="from">{{item.user.name}}</span>
+                        <span class="date">
+                        <span class="fa fa-paper-clip"></span> Today, 3:47 PM</span>
+                    </div>
+                    <div class="title">
+                        {{item.title}}
+                    </div>
+                    <div class="description">
+                        {{item.content}}
+                    </div>
+                </a>
+            </li>
+        </ul>
+
+{% endfor %}
+
+
+{% endblock %}
+
+<!--<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>-->
+<!--<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
